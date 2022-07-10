@@ -1,0 +1,17 @@
+<script>
+  function $(id) {
+    return document.getElementById(id)
+  }
+
+  function getQrcode() {
+    let api = '/index/about/qrcode'
+    let target = $('domain').value || 'http://w6wg.cn/ewm'
+    $('qrcode-img').src = `http://${location.host}${api}?target=${target}`
+  }
+
+  $('btn-build').onclick = function () {
+    getQrcode();
+  }
+
+  getQrcode()
+</script>

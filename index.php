@@ -1,0 +1,100 @@
+<?php
+
+
+$conf['qqjump']=1;
+if(strpos($_SERVER['HTTP_USER_AGENT'], 'QQ/')||strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')!==false && $conf['qqjump']==1){
+$siteurl='http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+echo '<!DOCTYPE html>
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no">
+<title>Hello World</title>
+<frameset><frame name="main" src="fh/tz.php" scrolling="auto" noresize></frameset></head>';
+exit; }
+?>
+
+<!doctype html>
+
+<html lang="en"><head><meta charset="utf-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="awsdxjh,Java,halo,blog,个人主页,博客,爱忘事的小家伙,爱忘事,小家伙">
+    <meta name="description" content="爱忘事的小家伙 每天都是最好的自己 一个乐于学习和分享的网站" />
+    <meta name="theme-color" content="#000000">
+    <title>爱忘事的小家伙</title>
+    
+    
+    
+    
+    
+    <!--禁止全屏缩放-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <!--不显示成手机号-->
+    <meta name="format-detection" content="telephone=no" />
+    <!--删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--解决UC手机字体变大的问题-->
+    <meta name="wap-font-scale" content="no" />
+    <!--控制状态栏显示样式-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="css/index.min.css">
+    <link rel="stylesheet" href="css/newlyAdd.css">
+</head>
+
+<body>
+
+<div id="app">
+    <div class="videozz"></div>
+    
+    <div class="bg-cover home-cover filter-dim centerbg">
+        <div class="wapper">
+            <div class="card-inner">
+                <header>
+                    <div >
+                        <img  src="http://q1.qlogo.cn/g?b=qq&amp;nk=1511942692&amp;s=640" width="80" height="80">
+                    </div>
+                    <h1  ><a href="https://res.abeim.cn/api/qq/?qq=1511942692">爱忘事的小家伙</a></h1>
+                    <h2  style="margin:1em auto">
+             每天都是最好的自己
+                    </h2>
+                </header>
+                <ul>
+                    <li class="fangda"><a href="http://adg.w6wg.cn/" target="_blank"><i class="iconfont icon-github icon"></i><span>QQ代挂</span></a></li>
+                    <li class="fangda"><a href="http://img.w6wg.cn/" target="_blank"><i class="iconfont icon-tuku icon"></i><span>图床</span></a></li>
+                    <li class="fangda"><a href="http://blog.w6wg.cn/" target="_blank"><i class="iconfont icon-boke icon"></i><span>博客</span></a></li>
+                    <li class="fangda"><a href="http://book.w6wg.cn/" target="_blank"><i class="iconfont icon-boke icon"></i><span>小说</span></a></li>
+                    <li class="fangda"><a href="http://lt.w6wg.cn/a" target="_blank"><i class="iconfont icon-jiankong icon"></i><span>聊天室</span></a></li>
+                </ul>
+            </div>
+            <footer>
+                <span>© 2021-2022 <a href="https://res.abeim.cn/api/qq/?qq=1511942692" target="_blank">爱忘事的小家伙</a></span>
+               <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37162302000368"> 鲁公网安备 37162302000368号</a>
+               <a target="_blank" href="http://beian.miit.gov.cn/"> 鲁ICP备2021015299号-1</a>
+               <a href="http://res.abeim.cn/api/qq/?qq=1511942692"> 联系站长</a>
+               
+               
+               <!--<a href="https://icp.gov.moe/?keyword=20219966" target="_blank"> 萌ICP备20219966号</a>-->
+            </footer>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+<!--<script id="xplayer" src="https://music.piphp.com/Static/player/player.js" key="60e59db4a76fa" m="1"></script>-->
+
+
+</body></html>
+
+
+
+
+
