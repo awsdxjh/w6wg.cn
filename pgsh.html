@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+
+<html lang="zh"><head><meta charset="utf-8">
+<html>
+<head>
+    <title>短信登录获取 Cookie</title>
+</head>
+<body>
+    <h1>短信登录获取 Cookie</h1>
+    <!--<h2><a href="" target="_blank">group</a></h2>-->
+    
+    <!--<h2> <a href="" target="_blank">tools</a></h2>-->
+    <form id="loginForm">
+        <label for="phone">手机号码:</label>
+        <input type="text" id="phone" name="phone" placeholder="请输入手机号码" required><br><br>
+        
+        <button type="submit">获取验证码</button>
+    </form>
+
+    <form id="verifyForm" style="display: none;">
+        <label for="verificationCode">验证码:</label>
+        <input type="text" id="verificationCode" name="verificationCode" placeholder="请输入验证码" required><br><br>
+        
+        <button type="submit">登录</button>
+    </form>
+
+    <p id="cookieInfo">这里将显示获取的 Cookie 信息</p>
+
+    <script>
+        let phone_text = '';
+
+        document.getElementById('loginForm').onsubmit = async function(event) {
+            event.preventDefault();
+            
+            phone_text = document.getElementById('phone').value;
+            
+            // 发送短信验证码请求，这里可以替换成实际的短信验证码接口
+            const response = await fetch('https://userapi.qiekj.com/common/sms/sendCode', {
+                method: 'POST',
+                headers: {
+                    Version: '1.50.3',
+                    channel: 'android_app',
+                    phoneBrand: 'Huawei',
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    'Content-Length': '30',
+                    Host: 'userapi.qiekj.com',
+                    Connection: 'Keep-Alive',
+                    'Accept-Encoding': 'gzip',
+                    'User-Agent': 'okhttp/3.14.9',
+                    'content-type': 'application/x-www-form-urlencoded'
+                 },
+                body: new URLSearchParams({phone: phone_text, template: 'reg'})
+            });
+
+            const data = await response.json();
+
+            if (data.msg == "成功") {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('verifyForm').style.display = 'block';
+            } else {
+                alert('验证码发送失败，请稍后再试');
+            }
+        };
+
+        document.getElementById('verifyForm').onsubmit = async function(event) {
+            event.preventDefault();
+            
+            const verificationCode = document.getElementById('verificationCode').value;
+            
+            // 发送验证码验证请求，这里可以替换成实际的验证码验证接口
+            const response = await fetch('https://userapi.qiekj.com/user/reg', {
+                method: 'POST',
+                headers: {
+                    Version: '1.50.3',
+                    channel: 'android_app',
+                    phoneBrand: 'Huawei',
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    'Content-Length': '49',
+                    Host: 'userapi.qiekj.com',
+                    Connection: 'Keep-Alive',
+                    'Accept-Encoding': 'gzip',
+                    'User-Agent': 'okhttp/3.14.9',
+                },
+                body: new URLSearchParams({channel: 'android_app', phone: phone_text, verify: verificationCode})
+            });
+
+            const data = await response.json();
+            if (data.msg == "成功") {
+                document.getElementById('cookieInfo').textContent = data.data.token;
+            } else {
+                alert('验证码错误，请重新输入');
+            }
+        };
+    </script>
+</body>
+</html>
