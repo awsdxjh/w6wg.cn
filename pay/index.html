@@ -18,13 +18,13 @@
      */ 
     var setting = {
         /* 在以下【双引号】中粘贴你的QQ钱包收款链接 */ 
-        qqUrl: "./qq.png",
+        qqUrl: "https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&f=wallet&a=1&u=1511942692&n=%E7%88%B1%E5%BF%98%E4%BA%8B%E7%9A%84%E5%B0%8F%E5%AE%B6%E4%BC%99&ac=CAEQpNT50AUYs4bEvAYyBuWFtuS7ljgBQiA5ODA2ZDQyOTk5MWE0MjNkNzYzNjlhY2M2MDIzZTZiMg%3D%3D_xxx_sign",
         
         /* 在以下【双引号】中粘贴你的微信收款链接 */ 
-        wechatUrl: "./wx.png",
+        wechatUrl: "wxp://f2f082le1heG36v31N4KdbL6w9NiRFVeEoSjaaDqt1kODw4_fC1irkMzMtWduZ3jpQsZ",
         
         /* 在以下【双引号】中粘贴你的支付宝收款链接 */ 
-        aliUrl: "zfb.jpg"
+        aliUrl: "https://qr.alipay.com/tsx17921dqxealslzpqpjf9"
     }
     </script>
     
@@ -111,10 +111,12 @@
     </div>
     
     <!-- 微信二维码展示区域 -->
-    <div>
-
-        <img src="https://img.w6wg.cn/img/wx.png">
-
+    <div class="code-item" id="code-wechat">
+        <div class="code-title"></div>
+        <div class="code-area">
+            <img id="wechat-url" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=">
+        </div>
+        <div class="code-footer">长按以上二维码向我付款</div>
     </div>
     
     <script>
